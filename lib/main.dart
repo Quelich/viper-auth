@@ -5,7 +5,7 @@ import 'auth_app.dart';
 
 void main() {
   initializeFirebase();
-  runApp(const AuthApp());
+  runApp( AuthApp());
 }
 
 // Initialize Firebase before the app starts.

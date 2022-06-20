@@ -27,78 +27,77 @@ class _SigninPageState extends State<SigninPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Signin Page'),
-      ),
-      body: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            // TODO: handle error in presenter
-            if (snapshot.hasError) {
-              return const Center(
-                child: Text(
-                  'Error signing in',
-                  style: TextStyle(color: Colors.red),
-                ),
-              );
-            }
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Center(
+            child: Text(
+              'Error signing in',
+              style: TextStyle(color: Colors.red),
+            ),
+          );
+        }
 
-            if (snapshot.hasData) {
-              return HomePage();
-            }
+        if (snapshot.hasData) {
+          return HomePage();
+        }
 
-            return Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 40,
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Signin Page'),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    TextField(
+                      controller: _emailController,
+                      cursorColor: Colors.white,
+                      textInputAction: TextInputAction.next,
+                      decoration: const InputDecoration(labelText: 'Email'),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    TextField(
+                      controller: _passwordController,
+                      cursorColor: Colors.white,
+                      textInputAction: TextInputAction.next,
+                      decoration: const InputDecoration(labelText: 'Password'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        _signInPresenter.signIn(
+                            _emailController, _passwordController);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50),
                       ),
-                      TextField(
-                        controller: _emailController,
-                        cursorColor: Colors.white,
-                        textInputAction: TextInputAction.next,
-                        decoration: const InputDecoration(labelText: 'Email'),
+                      icon: const Icon(
+                        Icons.login_outlined,
+                        size: 32,
                       ),
-                      const SizedBox(
-                        height: 5,
+                      label: const Text(
+                        'Sign In',
+                        style: TextStyle(fontSize: 24),
                       ),
-                      TextField(
-                        controller: _passwordController,
-                        cursorColor: Colors.white,
-                        textInputAction: TextInputAction.next,
-                        decoration:
-                            const InputDecoration(labelText: 'Password'),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          _signInPresenter.signIn(
-                              _emailController, _passwordController);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50),
-                        ),
-                        icon: const Icon(
-                          Icons.login_outlined,
-                          size: 32,
-                        ),
-                        label: const Text(
-                          'Sign In',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            );
-          }),
+            ),
+          ),
+        );
+      },
     );
   }
 }
