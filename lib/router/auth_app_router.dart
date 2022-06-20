@@ -7,40 +7,61 @@ import '../view/signup_page.dart';
 
 class AuthAppRouter {
   void navigateToHomePage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
-    );
+    Future.delayed(Duration.zero, () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomePage();
+          },
+        ),
+      );
+    });
   }
 
   void navigateToSplashPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SplashPage(),
-      ),
-    );
+    Future.delayed(Duration.zero, () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return SplashPage();
+          },
+        ),
+      );
+    });
   }
 
   void navigateToSigninPage(BuildContext context) {
-    print("Call AuthAppRouter.navigateToSigninPage");
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SigninPage(),
-      ),
-    );
+    Future.delayed(Duration.zero, () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return SigninPage();
+          },
+        ),
+      );
+    });
   }
 
   void navigateToSignupPage(BuildContext context) {
-    print("Call AuthAppRouter.navigateToSignupPage");
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SignupPage(),
-      ),
-    );
+    Future.delayed(Duration.zero, () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return SignupPage();
+          },
+        ),
+      );
+    });
+  }
+
+  void navigateBack(BuildContext context) {
+    print("Pressed on back");
+    Future.delayed(Duration.zero, () {
+      Navigator.pop(context);
+    });
   }
 }

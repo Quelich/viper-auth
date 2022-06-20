@@ -14,7 +14,22 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: Center(),
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            ElevatedButton.icon(
+              onPressed: () {
+                //TODO: logout
+              },
+              icon: const Icon(Icons.logout_outlined),
+              label: const Text("Logout"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

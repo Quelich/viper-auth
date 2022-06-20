@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-
-class SigninInteractor extends StatefulWidget {
-  const SigninInteractor({Key? key}) : super(key: key);
-
-  @override
-  State<SigninInteractor> createState() => _SigninInteractorState();
-}
-
-class _SigninInteractorState extends State<SigninInteractor> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+class SigninInteractor
+{
+  // Send a sign in call to Firebase Auth API and return the result
+  Future getSignInResult(TextEditingController emailController, TextEditingController passwordController) async
+  {
+     await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    );
   }
 }

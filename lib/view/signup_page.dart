@@ -16,7 +16,9 @@ class _SiguUpPageState extends State<SignupPage> {
       ),
       body: Center(
         child: Column(
-          children: [],
+          children: [
+            
+          ],
         ),
       ),
     );
