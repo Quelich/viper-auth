@@ -1,6 +1,9 @@
 import 'package:auth_app/router/auth_app_router.dart';
 import 'package:auth_app/interactor/signin_interactor.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:auth_app/view/signin_page.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../view/home_page.dart';
 
 class SigninPresenter {
   AuthAppRouter _router = AuthAppRouter();
@@ -16,6 +19,6 @@ class SigninPresenter {
       throw Exception('Please enter email and password');
     }
 
-      _interactor.getSignInResult(emailController, passwordController);
+    _interactor.getSignInResult(emailController, passwordController);
   }
 }
