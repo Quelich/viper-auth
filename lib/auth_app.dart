@@ -1,3 +1,4 @@
+import 'package:auth_app/view/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'view/home_page.dart';
 
@@ -13,7 +14,7 @@ class AuthApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+      home: const SplashPage(),
     );
   }
 }
