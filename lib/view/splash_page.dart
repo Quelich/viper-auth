@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import '../presenter/signin_presenter.dart';
+import '../presenter/signup_presenter.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  SplashPage({Key? key}) : super(key: key);
+
+  final _signinPresenter = SigninPresenter();
+  final _signupPresenter = SignupPresenter();
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +20,15 @@ class SplashPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // navigate to sign in page
+                _signinPresenter.router.navigateToSigninPage(context);
               },
-              child: Text("Signin"),
+              child: const Text("Signin"),
             ),
             ElevatedButton(
               onPressed: () {
-                // navigate to sign up page
+                _signupPresenter.router.navigateToSignupPage(context);
               },
-              child: Text("Signup"),
+              child: const Text("Signup"),
             ),
           ],
         ),

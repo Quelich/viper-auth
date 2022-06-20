@@ -1,6 +1,5 @@
 import 'package:auth_app/view/splash_page.dart';
 import 'package:flutter/material.dart';
-import 'view/home_page.dart';
 
 class AuthApp extends StatelessWidget {
   const AuthApp({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class AuthApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SplashPage(),
+      home: SplashPage(),
     );
   }
 }
