@@ -46,6 +46,12 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+  # Firebase Database
+  cloud_firestore: ^3.1.18
+
+  # Splash Screen
+
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
