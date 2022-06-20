@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                   _homePagePresenter.signOut();
                 },
                 icon: const Icon(Icons.logout_outlined),
-                label: const Text("Logout"),
+                label: const Text("Logout", style: TextStyle(fontSize: 24)),
               ),
             ],
           ),
